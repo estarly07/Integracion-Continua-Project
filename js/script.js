@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     loadComponent('header', 'views/home/header_home.html');
+    loadComponent('main', 'views/home/main_home.html');
 });
 
 function loadComponent(id, url) {
