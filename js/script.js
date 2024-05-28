@@ -51,3 +51,10 @@ function search() {
         document.getElementById("results").appendChild(li);
     }        
 }
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.recipe button').forEach(button => {
+        button.addEventListener('click', function() {
+            alert('Más recetas próximamente!');
+        });
+    });
+});

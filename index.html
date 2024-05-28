@@ -14,9 +14,55 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="header"></div>
-    <div id="main"></div>
-    <div id="recipe"></div>
+    <div id="header">
+        <nav>
+            <ul>
+                <li><a href="#main">Inicio</a></li>
+                <li><a href="#recipe">Recetas</a></li>
+                <li><a href="#about">Acerca de</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <div id="main">
+        <!-- Contenido principal aquí -->
+    </div>
+    
+    <div id="recipe">
+        <!-- Recetas aquí -->
+    </div>
+    
+    <div id="about">
+        <h2>Acerca de</h2>
+        <p>Somos una plataforma dedicada a compartir las mejores recetas caseras.</p>
+    </div>
+    
+    <div id="contact">
+        <h2>Contacto</h2>
+        <form>
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name">
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+            <br>
+            <label for="message">Mensaje:</label>
+            <textarea id="message" name="message"></textarea>
+            <br>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+    
+    <div id="footer">
+        <p>&copy; 2024 Deli Food. Todos los derechos reservados.</p>
+        <p>Síguenos en:
+            <a href="#">Instagram</a> |
+            <a href="#">Facebook</a> |
+            <a href="#">Twitter</a>
+        </p>
+    </div>
+    
     <script src="js/script.js"></script>
 </body>
 </html>
