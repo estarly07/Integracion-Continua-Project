@@ -1,7 +1,9 @@
+const endpoint = 'http://localhost:3000/recipes';
+
 document.addEventListener('DOMContentLoaded', () => {
     loadComponent('header', 'views/home/header_home.html');
     loadComponent('main', 'views/home/main_home.html');
-    loadComponent('recipe', 'views/home/recipe_home.html');
+    fetchRecipes();
 });
 
 function loadComponent(id, url) {
@@ -19,6 +21,53 @@ function showRecipeModal() {
 function closeRecipeModal() {
     document.getElementById('recipeModal').style.display = 'none';
 }
+
+
+async function fetchRecipes() {
+    try {
+        const response = await fetch(endpoint);
+        if (!response.ok) { throw new Error('Error al obtener las recetas.'); }
+        const recipes = await response.json();
+        displayRecipes(recipes);
+    } catch (error) {
+        console.error('Error fetching recipes:', error);
+    }
+}
+
+function displayRecipes(recipes) {
+    const recipesContainer = document.getElementById('recipes-container');
+    recipesContainer.innerHTML = '';
+    
+    recipes.forEach(recipe => {
+        fetch('views/home/recipe_home.html')
+            .then(response => response.text())
+            .then(html => {
+                // Crear un elemento DOM a partir del HTML obtenido
+                const recipeElement = document.createElement('div');
+                recipeElement.innerHTML = html.trim();
+
+                recipeElement.querySelector('.recipe-image').src  = recipe.image;
+                recipeElement.querySelector('.recipe-name').textContent  = recipe.name;
+
+                const ingredientsList = recipeElement.querySelector('.recipe-ingredients');
+                ingredientsList.innerHTML = ''; // Limpiar la lista de ingredientes antes de agregar nuevos
+
+                recipe.ingredients.forEach(ingredient => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = ingredient;
+                    ingredientsList.appendChild(listItem);
+                });
+
+
+                recipesContainer.appendChild(recipeElement);
+            })
+            .catch(error => {
+                console.error('Error loading recipe_home.html:', error);
+            });
+    });
+}
+
+
 //Adicionar redireccionamientos a las recetas de acuerdo a como se vaya llenando el contenido
 let data = [
     "Pizza napolitana",
