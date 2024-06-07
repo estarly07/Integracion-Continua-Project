@@ -1,0 +1,12 @@
+{
+    "id": 2,
+    "name": "Ensalada César con Pollo",
+    "image": "https://i.pinimg.com/736x/5d/97/b6/5d97b6248022aad8bc77bef828a49399.jpg",
+    "ingredients": [
+      "2 pechugas de pollo",
+      "Lechuga romana",
+      "Crutones",
+      "Queso Parmesano",
+      "Aderezo César"
+    ]
+  }

@@ -1,0 +1,13 @@
+{
+    "id": 1,
+    "name": "Spaghetti Carbonara",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Classic-spaghetti-carbonara.jpg/640px-Classic-spaghetti-carbonara.jpg",
+    "ingredients": [
+      "200g spaghetti",
+      "100g pancetta",
+      "2 eggs",
+      "50g grated Parmesan cheese",
+      "Black pepper",
+      "Salt"
+    ]
+  }
