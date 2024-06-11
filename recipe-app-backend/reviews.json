@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Juan Pérez",
+    "email": "juan.perez@gmail.com",
+    "message": "Me encantaron las recetas. Muy fáciles de seguir y deliciosas."
+  },
+  {
+    "name": "Ana García",
+    "email": "ana.garcia@gmail.com",
+    "message": "Excelente variedad de recetas. ¡Gracias!"
+  },
+  {
+    "name": "Carlos López",
+    "email": "carlos.lopez@gmail.com",
+    "message": "¡Las mejores recetas que he probado!"
+  }
+]
