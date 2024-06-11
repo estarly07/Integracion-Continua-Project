@@ -2,6 +2,7 @@
     "id": 1,
     "name": "Spaghetti Carbonara",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Classic-spaghetti-carbonara.jpg/640px-Classic-spaghetti-carbonara.jpg",
+    "category":[2,3],
     "ingredients": [
       "200g spaghetti",
       "100g pancetta",

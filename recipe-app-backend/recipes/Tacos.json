@@ -2,6 +2,7 @@
     "id": 1,
     "name": "Tacos de Carnitas",
     "image": "https://cielitorosado.com/wp-content/uploads/2022/11/CARNITAS-sm.jpg",
+    "category":[2,3],
     "ingredients": [
       "500g de carne de cerdo",
       "Tortillas de maíz",

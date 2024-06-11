@@ -1,5 +1,6 @@
 const endpoint = 'http://localhost:3000/recipes';
 
+
 document.addEventListener('DOMContentLoaded', () => {
     loadComponent('header', 'views/home/header_home.html');
     loadComponent('main', 'views/home/main_home.html');
@@ -34,6 +35,8 @@ async function fetchRecipes() {
     }
 }
 
+let categories = ["Desayuno", "Almuerzo", "Cena", "Postre"]
+
 function displayRecipes(recipes) {
     const recipesContainer = document.getElementById('recipes-container');
     recipesContainer.innerHTML = '';
@@ -48,6 +51,16 @@ function displayRecipes(recipes) {
 
                 recipeElement.querySelector('.recipe-image').src  = recipe.image;
                 recipeElement.querySelector('.recipe-name').textContent  = recipe.name;
+
+                //Adiciona nombres de categoria segun la receta
+                const categoryList = recipeElement.querySelector('.recipe-categories');
+                categoryList.innerHTML = '';
+                recipe.category.forEach(cat => {
+                    let cat_name = categories.at(cat);
+                    const listItem = document.createElement('li');
+                    listItem.textContent = cat_name;
+                    categoryList.appendChild(listItem);
+                });
 
                 const ingredientsList = recipeElement.querySelector('.recipe-ingredients');
                 ingredientsList.innerHTML = ''; // Limpiar la lista de ingredientes antes de agregar nuevos
@@ -67,14 +80,39 @@ function displayRecipes(recipes) {
     });
 }
 
+//Listado de recetas
+let data = []
 
-//Adicionar redireccionamientos a las recetas de acuerdo a como se vaya llenando el contenido
-let data = [
-    "Pizza napolitana",
-    "Hamburguesa al carbon"
-]
+function listrecipes() {
+    const path = require('path');
+    const fs = require('fs');
+    //Obtener listado de recetas actualizado
+    fs.readdir(endpoint, (err, items) => {
+        if (err) {
+          console.error('Error al leer la carpeta:', err);
+          return;
+        }
+        items.forEach((item) => {
+          const itemPath = path.join(endpoint, item);
+          fs.stat(itemPath, (statErr, stats) => {
+            if (statErr) {
+              console.error(`Error al leer ${item}:`, statErr);
+              return;
+            }
+      
+            if (stats.isFile()) {
+                data.push(item);
+                //console.log('File:', item);
+            }
+          });
+        });
+      });
+}
 
 function search() {
+    //llamada
+    listrecipes();    
+
     let query = document.getElementById("search-input").value;
     console.log(query);
     if (query.trim() === "") {

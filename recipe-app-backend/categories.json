@@ -1,0 +1,27 @@
+{
+    "desayunos": [{
+            "1": ""
+        },{
+            "2": ""
+        }],
+    "almuerzos": [{
+            "1": "/Ensalada.json"
+        },{
+            "2": "/Spaghetti.json"
+        },{
+            "3": "/Tacos.json"
+        }],
+    "cenas": [{
+            "1": "/Ensalada.json"
+        },{
+            "2": "/Spaghetti.json"
+        },{
+            "2": "/Tacos.json"
+        }],
+    "postres": [{
+            "1": ""
+        },{
+            "2": ""
+        }]
+      
+}
